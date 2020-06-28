@@ -1,3 +1,5 @@
+from student import *
+
 class StudentManager(object):
     def __init__(self):
         # 存储学生数据的列表
@@ -49,11 +51,38 @@ class StudentManager(object):
 
     # 添加学生
     def add_student(self):
-        print('添加学生')
+        # 用户输入信息
+        name = input('请输入您的姓名：')
+        gender = input('请输入您的性别：')
+        tel = input('请输入您的电话：')
+
+        # 创建学生对象 -- 类在student文件里，先导入student模块，再创建对象
+        student = Student(name, gender, tel)
+
+        # 将该对象添加到学生列表
+        self.student_list.append(student)
+
+        print('姓名\t性别\t电话')
+        for i in self.student_list:
+            print(i.name,end='\t\t')
+            print(i.gender,end='\t\t')
+            print(i.tel)
 
     # 删除学生
     def del_student(self):
-        print('删除学生')
+        # 用户输入学生姓名
+        del_name = input('请输入要删除的学生姓名：')
+
+        # 遍历学生列表
+        for i in self.student_list:
+            if del_name == i.name:
+                self.student_list.remove(i)
+                break
+        # 循环后，即查无此学生
+        else:
+            print('查无此人')
+
+        print('删除后：'+self.student_list)
 
     # 修改学生
     def modify_student(self):
