@@ -35,6 +35,7 @@ class StudentManager(object):
                 self.save_student()
             elif menu_num == 7:
                 # 退出系统 -- 退出循环
+                print('退出成功，欢迎下次使用。')
                 break
 
     # 二、系统功能函数
@@ -62,11 +63,7 @@ class StudentManager(object):
         # 将该对象添加到学生列表
         self.student_list.append(student)
 
-        print('姓名\t性别\t电话')
-        for i in self.student_list:
-            print(i.name,end='\t\t')
-            print(i.gender,end='\t\t')
-            print(i.tel)
+        self.show_student()
 
     # 删除学生
     def del_student(self):
@@ -80,26 +77,74 @@ class StudentManager(object):
                 break
         # 循环后，即查无此学生
         else:
-            print('查无此人')
+            print('删除失败，查无此人')
 
-        print('删除后：'+self.student_list)
+        self.show_student()
 
     # 修改学生
     def modify_student(self):
-        print('修改学生')
+        modify_name = input('请输入要修改的学生姓名：')
+
+        for i in self.student_list:
+            if modify_name == i.name:
+                i.name = input('姓名')
+                i.gender = input('性别')
+                i.tei = input('电话')
+                print(f'修改学生信息成功，姓名：{i.name}，性别：{i.gender}，电话：{i.tel}')
+                break
+        else:
+            print('修改失败，查无此人')
+
+        self.show_student()
 
     # 查询学生
     def search_student(self):
-        print('查询学生')
+        search_name = input('请输入查询的学生姓名：')
+
+        for i in self.student_list:
+            if search_name == i.name:
+                print(f'学生信息查询成功，姓名：{i.name}，性别：{i.gender}，电话：{i.tel}')
+                break
+        else:
+            print('查询失败，查无此人')
 
     # 显示学生
     def show_student(self):
-        print('显示学生')
+        print('-' * 5 + '所有学生信息' + '-' * 5)
+        print('姓名\t性别\t电话')
+        for i in self.student_list:
+            print(i.name, end='\t\t')
+            print(i.gender, end='\t\t')
+            print(i.tel)
+        print('-' * 21)
 
     # 保存学生
     def save_student(self):
-        print('保存学生')
+        # 打开文件
+        f = open('student.data', 'w')
+
+        # 文件写入数据
+        # [学生对象] 转换成 [字典]
+        new_list = [i.__dict__ for i in self.student_list]
+        print(str(new_list))
+
+        # 文件写入 字符串数据
+        f.write(str(new_list))
+
+        # 关闭文件
+        f.close()
 
     # 加载学生
     def load_student(self):
-        print('加载学生')
+        # 1、打开文件：尝试r打开，有异常w打开
+        try:
+            f = open('student.data', 'r')
+        except:
+            f = open('student.data', 'w')
+        else:
+            # 读取数据：文件读出的数据是字符串，还原为列表类型：[{}] 转换 [学生对象]
+            data = f.read()
+            new_list = eval(data)
+            self.student_list = [Student(i['name'], i['gender'], i['tel']) for i in new_list]
+        finally:
+            f.close()
