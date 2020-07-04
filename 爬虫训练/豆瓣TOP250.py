@@ -52,10 +52,10 @@ def printAndSave(lst):
     :return:
     '''
     i = 0
-    tplt = "{:4}\t{:80}\t{:4}"
-    print(tplt.format("排名", "电影名", "评分", chr(12288)))
+    tplt = "{0:^6}\t{1:^60}\t{2:^5}"
+    print(tplt.format("排名", "电影名", "评分"))
     with open('movie_top250.txt', 'a', encoding='utf-8') as f:
-        f.write(tplt.format("排名", "电影名", "评分", chr(12288)))
+        f.write(tplt.format("排名", "电影名", "评分"))
         f.write('\n')
     for movie in lst:
         i += 1
@@ -64,7 +64,7 @@ def printAndSave(lst):
 
         # a 模式：如果没文件，则创建，有文件，追加写入
         with open('movie_top250.txt', 'a', encoding='utf-8') as f:
-            f.write(tplt.format(i, movie[0], movie[1], chr(12288)))
+            f.write(tplt.format(i, movie[0], movie[1]))
             f.write('\n')
 
 def main():
