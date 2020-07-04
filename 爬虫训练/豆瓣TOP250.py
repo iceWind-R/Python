@@ -1,6 +1,8 @@
-# 用于豆瓣2019的TOP250电影爬虫，URL ：https://movie.douban.com/top250
-# 输出 排名 电影名 评分
+# 用于豆瓣2019的TOP250电影爬虫
+# URL ：https://movie.douban.com/top250
+# 输出：排名 电影名 评分
 # 存在问题：输出时无法对齐
+# 问题原因：电影名中有多国字符，长度不一，该如何统一？
 
 import requests
 import re
