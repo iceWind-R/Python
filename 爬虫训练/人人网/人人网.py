@@ -11,5 +11,5 @@ session = requests.session()
 session.post(url, data = data, headers = headers)
 
 response = session.get('http://www.renren.com/974726184/profile')
-with open('爬虫训练/人人网/renrne.html', 'w', encoding='utf-8') as f:
+with open('renrne.html', 'w', encoding='utf-8') as f:
     f.write(response.text)
