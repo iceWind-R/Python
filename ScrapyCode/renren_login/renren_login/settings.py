@@ -1,4 +1,4 @@
-# Scrapy settings for qsbk project
+# Scrapy settings for renren_login project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'qsbk'
+BOT_NAME = 'renren_login'
 
-SPIDER_MODULES = ['qsbk.spiders']
-NEWSPIDER_MODULE = 'qsbk.spiders'
+SPIDER_MODULES = ['renren_login.spiders']
+NEWSPIDER_MODULE = 'renren_login.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'qsbk (+http://www.yourdomain.com)'
+#USER_AGENT = 'renren_login (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -25,7 +25,7 @@ ROBOTSTXT_OBEY = False
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 1
+#DOWNLOAD_DELAY = 3
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -38,23 +38,21 @@ DOWNLOAD_DELAY = 1
 
 # Override the default request headers:
 DEFAULT_REQUEST_HEADERS = {
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-    'Accept-Language': 'en',
-    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en',
+  'user-agent':'Mozilla/5.0'
 }
-
-LOG_LEVEL = "WARN"
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'qsbk.middlewares.QsbkSpiderMiddleware': 543,
+#    'renren_login.middlewares.RenrenLoginSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'qsbk.middlewares.QsbkDownloaderMiddleware': 543,
+#    'renren_login.middlewares.RenrenLoginDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,9 +63,9 @@ LOG_LEVEL = "WARN"
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   'qsbk.pipelines.QsbkPipeline': 300, # 当有多个pipelines，后面的值越小代表越优先执行
-}
+#ITEM_PIPELINES = {
+#    'renren_login.pipelines.RenrenLoginPipeline': 300,
+#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

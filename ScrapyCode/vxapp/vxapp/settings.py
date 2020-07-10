@@ -1,4 +1,4 @@
-# Scrapy settings for qsbk project
+# Scrapy settings for vxapp project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'qsbk'
+BOT_NAME = 'vxapp'
 
-SPIDER_MODULES = ['qsbk.spiders']
-NEWSPIDER_MODULE = 'qsbk.spiders'
+SPIDER_MODULES = ['vxapp.spiders']
+NEWSPIDER_MODULE = 'vxapp.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'qsbk (+http://www.yourdomain.com)'
+#USER_AGENT = 'vxapp (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -38,23 +38,22 @@ DOWNLOAD_DELAY = 1
 
 # Override the default request headers:
 DEFAULT_REQUEST_HEADERS = {
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-    'Accept-Language': 'en',
-    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'en',
+  'user-agent':'Mozilla/5.0'
 }
 
-LOG_LEVEL = "WARN"
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'qsbk.middlewares.QsbkSpiderMiddleware': 543,
+#    'vxapp.middlewares.VxappSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'qsbk.middlewares.QsbkDownloaderMiddleware': 543,
+#    'vxapp.middlewares.VxappDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -66,7 +65,7 @@ LOG_LEVEL = "WARN"
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'qsbk.pipelines.QsbkPipeline': 300, # 当有多个pipelines，后面的值越小代表越优先执行
+   'vxapp.pipelines.VxappPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

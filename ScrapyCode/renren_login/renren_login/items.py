@@ -6,8 +6,7 @@
 import scrapy
 
 
-class QsbkItem(scrapy.Item):
+class RenrenLoginItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    author = scrapy.Field() # 选择需要输出结果的属性
-    content = scrapy.Field()
+    pass
