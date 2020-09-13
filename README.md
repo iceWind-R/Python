@@ -21,3 +21,5 @@
     - renren_login: 模拟人人网登录，FormRequest的使用。
     
 7. **Flask**：python的Web入门。
+
+8. **机器学习**：机器学习的入门学习。
